@@ -19,15 +19,25 @@
 <body>
     <main class="container">
         <img src="/assets/images/churras.jpg" alt="2 pessoas fazendo churrasco.">
+        <form id="mainForm" novalidate>
         <h1>Churrascômetro</h1>
+        <p>Saiba quanta comida e bebida vai precisar!</p>
+
+        <label for="adultos">Quantidade de adultos</label>
         <input id="adultos" name="adultos" type="text" placeholder="Adultos">
+
+        <label for="criancas">Quantidade de crianças</label>
         <input id="criancas" name="criancas" type="text" placeholder="Crianças">
+
+        <label for="duracao">Duração do churrasco</label>
         <input id="duracao" name="duracao" type="text" placeholder="Duração (h)">
+        
         <button>Calcular</button>
 
         <div id="result">
 
         </div>
+        </form>
     </main>
 </body>
 </html>
