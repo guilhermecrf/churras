@@ -126,6 +126,38 @@ input {
     transform: scale(1.04);
 }
 
+/* -------------------- alert-error -------------------- */
+
+.alert-error.open {
+    visibility: visible;
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+.alert-error {
+    background-color: #F03E3E;
+    color: #fff;
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    text-align: center;
+    font-weight: bold;
+
+    padding: .4rem 0;
+
+    visibility: hidden;
+    opacity: 0;
+
+    transform: translateY(-1.875rem);
+    transition: transform .5s;
+
+}
+
 /* -------------------- modal -------------------- */
 
 .card {
