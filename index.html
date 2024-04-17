@@ -24,7 +24,7 @@
     <main class="container">
         <img src="/assets/images/churras.jpg" alt="2 pessoas fazendo churrasco.">
         <form>
-        <h1>Churrascômetro</h1>
+        <h1 class="title">Churrascômetro</h1>
         <p>Saiba quanta comida e bebida vai precisar!</p>
 
         <label for="adults">Quantidade de adultos</label>
@@ -36,19 +36,18 @@
         <label for="timing">Duração do churrasco</label>
         <input id="timing" name="timing" type="text" placeholder="Duração (h)">
         
-        <button class="main-btn" onclick="calc()">Calcular</button>
+        <button type="submit">Calcular</button>
         </form>
     </main>
     <div class="modal-result">
         <div class="modal card">
-            <button class="close">
+            <h2 class="title">Cálculo</h2>
+
+            <button id="close">
                 <img src="/assets/images/close.svg" alt="An close icon">
             </button>
 
-            <h2>Cálculo</h2>
-            <p>Precisará de 1kg de Carne</p>
-            <p>Precisará de 3l de Cerveja</p>
-            <p>Precisará de 5l de Bebidas</p>
+            <p id="change">Precisará de 1kg de Carne</p>
         </div>
     </div>
 </body>

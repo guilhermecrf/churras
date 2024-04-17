@@ -1,16 +1,16 @@
 const form = document.querySelector('form')
 
-let inputAdults = document.getElementById('adults')
-let inputKids = document.getElementById('kids')
-let inputTiming = document.getElementById('timing')
+let inputAdults = document.querySelector('#adults')
+let inputKids = document.querySelector('#kids')
+let inputTiming = document.querySelector('#timing')
 
-let result = document.getElementById('result')
+const modalWrapper = document.querySelector('.modal-result')
+const modalMessage = document.querySelector('#change')
+const modalButtonClose = document.querySelector('#close')
 
-form.onsubmit = function(event) {
+form.onsubmit = event => {
     event.preventDefault()
-}
 
-function calc() {
     let adults = inputAdults.value
     let kids = inputKids.value
     let timing = inputTiming.value
@@ -19,10 +19,13 @@ function calc() {
     let totalAmountBeer = beerPerPerson(timing) * adults
     let totalAmountDrinks = drinksPerPerson(timing) * adults + (drinksPerPerson(timing) / 2 * kids)
 
-    // result.innerHTML = `<p>${totalAmountMeat}kg de Carne</p>`
-    // result.innerHTML += `<p>${totalAmountBeer}kg de Cerveja</p>`
-    // result.innerHTML += `<p>${totalAmountDrinks}kg de Bebidas</p>`
+    const message = `Precisará de ${totalAmountMeat / 1000} Kg de Carne, ${Math.ceil(totalAmountBeer / 355)} latas de cerveja e, ${Math.ceil(totalAmountDrinks / 2000)} garrafas de bebidas.`
+
+    modalMessage.innerText = message
+    modalWrapper.classList.add('open')
 }
+
+modalButtonClose.onclick = () => modalWrapper.classList.remove('open')
 
 function meatPerPerson(timing) {
     if(timing >= 6) {

@@ -69,6 +69,12 @@ form {
     
 }
 
+.title {
+    color: #090039;
+
+    text-align: center;
+}
+
 form h1 {
     color: #090039;
 
@@ -90,7 +96,7 @@ input {
     margin-bottom: 10px;
 }
 
-.main-btn {
+form button {
     background-color: #7158EF;
     color: #fff;
 
@@ -120,7 +126,7 @@ input {
     white-space: normal;
 }
 
-.main-btn:hover{
+form button:hover{
     background-color: #4631b1;
 
     transform: scale(1.04);
@@ -173,8 +179,8 @@ input {
 }
 
 .modal-result.open {
-    opacity: 1;
     visibility: visible;
+    opacity: 1;
 }
 
 .modal-result {
