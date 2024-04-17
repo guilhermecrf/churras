@@ -16,7 +16,12 @@ function calc() {
     let timing = inputTiming.value
 
     let totalAmountMeat = meatPerPerson(timing) * adults + (meatPerPerson(timing) / 2 * kids)
-    console.log(totalAmountMeat)
+    let totalAmountBeer = beerPerPerson(timing) * adults
+    let totalAmountDrinks = drinksPerPerson(timing) * adults + (drinksPerPerson(timing) / 2 * kids)
+
+    // result.innerHTML = `<p>${totalAmountMeat}kg de Carne</p>`
+    // result.innerHTML += `<p>${totalAmountBeer}kg de Cerveja</p>`
+    // result.innerHTML += `<p>${totalAmountDrinks}kg de Bebidas</p>`
 }
 
 function meatPerPerson(timing) {
@@ -24,5 +29,21 @@ function meatPerPerson(timing) {
         return 650
     }else {
         return 400
+    }
+}
+
+function beerPerPerson(timing) {
+    if(timing >= 6) {
+        return 2000
+    }else {
+        return 1200
+    }
+}
+
+function drinksPerPerson(timing) {
+    if(timing >= 6) {
+        return 1500
+    }else {
+        return 1000
     }
 }

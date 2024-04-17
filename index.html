@@ -32,12 +32,20 @@
         <label for="timing">Duração do churrasco</label>
         <input id="timing" name="timing" type="text" placeholder="Duração (h)">
         
-        <button onclick="calc()">Calcular</button>
-
-        <div id="result">
-
-        </div>
+        <button class="main-btn" onclick="calc()">Calcular</button>
         </form>
     </main>
+    <div class="modal-result">
+        <div class="modal card">
+            <button class="close">
+                <img src="/assets/images/close.svg" alt="An close icon">
+            </button>
+
+            <h2>Cálculo</h2>
+            <p>Precisará de 1kg de Carne</p>
+            <p>Precisará de 3l de Cerveja</p>
+            <p>Precisará de 5l de Bebidas</p>
+        </div>
+    </div>
 </body>
 </html>

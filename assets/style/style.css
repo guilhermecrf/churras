@@ -5,6 +5,8 @@ url(
 'https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap'
 );
 
+/* ---------- reset and defaults configs. ---------- */
+
 * {
     margin: 0;
     padding: 0;
@@ -23,6 +25,8 @@ body {
     height: 100vh;
     padding: 0 1.25rem;
 }
+
+/* -------------------- content -------------------- */
 
 .container {
     background-color: #fff;
@@ -86,7 +90,7 @@ input {
     margin-bottom: 10px;
 }
 
-button {
+.main-btn {
     background-color: #7158EF;
     color: #fff;
 
@@ -116,8 +120,78 @@ button {
     white-space: normal;
 }
 
-button:hover{
+.main-btn:hover{
     background-color: #4631b1;
 
     transform: scale(1.04);
+}
+
+/* -------------------- modal -------------------- */
+
+.card {
+    background: #fff;
+
+    padding: 3.125rem 5.625rem;
+
+    max-width: 28.125rem;
+    margin-inline: auto;
+
+    box-shadow: 0 .2rem .4rem rgba(0, 0, 0, 0.1);
+    border-radius: .6rem;
+}
+
+.modal-result.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-result {
+    background: rgba(0, 0, 0, 0.7);
+
+    position: absolute;
+
+    inset: 0;
+
+    display: grid;
+    place-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal-result h2 {
+    color: #090039;
+
+    text-align: center;
+
+    margin-bottom: .75rem;
+}
+
+.modal-result p {
+    color: rgba(10, 0, 57, 0.75);
+
+    text-align: center;
+
+    font-weight: 500;
+    line-height: 1.5625rem;
+}
+
+.modal {
+    position: relative;
+}
+
+.modal button {
+    background: none;
+    border: none;
+
+    position: absolute;
+    top: 1.6rem;
+    right: 1.6rem;
+
+    cursor: pointer;
+    transition: transform .3s;
+}
+
+.modal button:hover {
+    transform: scale(1.1);
 }
