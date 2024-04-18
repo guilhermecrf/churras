@@ -1,21 +1,16 @@
+import { Modal } from './modal.js'
+import { AlertError } from './alert-error.js'
+import { notANumber } from './utils.js'
+
 const form = document.querySelector('form')
 
 let inputAdults = document.querySelector('#adults')
 let inputKids = document.querySelector('#kids')
 let inputTiming = document.querySelector('#timing')
 
-const Modal = {
-    wrapper: document.querySelector('.modal-result'),
-    message: document.querySelector('#change'),
-    buttonClose: document.querySelector('#close'),
-
-    open(){
-        Modal.wrapper.classList.add('open')
-    },
-    close() {
-        Modal.wrapper.classList.remove('open')
-    }
-}
+inputAdults.oninput = () => AlertError.close()
+inputKids.oninput = () => AlertError.close()
+inputDrinks.oninput = () => AlertError.close()
 
 form.onsubmit = event => {
     event.preventDefault()
@@ -24,18 +19,20 @@ form.onsubmit = event => {
     let kids = inputKids.value
     let timing = inputTiming.value
 
+    const inputMeatAndDrinksIsNotANumber = notANumber(adults) || notANumber(kids) || notANumber(timing)
+
+    if(inputMeatAndDrinksIsNotANumber) {
+        AlertError.open()
+        return;
+    }
+
+    AlertError.close()
+
     let totalAmountMeat = meatPerPerson(timing) * adults + (meatPerPerson(timing) / 2 * kids)
     let totalAmountBeer = beerPerPerson(timing) * adults
     let totalAmountDrinks = drinksPerPerson(timing) * adults + (drinksPerPerson(timing) / 2 * kids)
 
-    const message = `Precisará de ${totalAmountMeat / 1000} kg de carne, ${Math.ceil(totalAmountBeer / 355)} latas de cerveja e, ${Math.ceil(totalAmountDrinks / 2000)} garrafas de bebidas.`
-
-    Modal.message.innerText = message
-    Modal.open()
-}
-
-Modal.buttonClose.onclick = () => {
-    Modal.close()
+    displayResultMessage(totalAmountMeat, totalAmountBeer, totalAmountDrinks)
 }
 
 function meatPerPerson(timing) {
@@ -60,4 +57,11 @@ function drinksPerPerson(timing) {
     }else {
         return 1000
     }
+}
+
+function displayResultMessage(totalAmountMeat, totalAmountBeer, totalAmountDrinks) {
+    const message = `Precisará de ${totalAmountMeat / 1000} kg de carne, ${Math.ceil(totalAmountBeer / 355)} latas de cerveja e, ${Math.ceil(totalAmountDrinks / 2000)} garrafas de bebidas.`
+
+    Modal.message.innerText = message
+    Modal.open()
 }
