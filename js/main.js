@@ -4,9 +4,18 @@ let inputAdults = document.querySelector('#adults')
 let inputKids = document.querySelector('#kids')
 let inputTiming = document.querySelector('#timing')
 
-const modalWrapper = document.querySelector('.modal-result')
-const modalMessage = document.querySelector('#change')
-const modalButtonClose = document.querySelector('#close')
+const Modal = {
+    wrapper: document.querySelector('.modal-result'),
+    message: document.querySelector('#change'),
+    buttonClose: document.querySelector('#close'),
+
+    open(){
+        Modal.wrapper.classList.add('open')
+    },
+    close() {
+        Modal.wrapper.classList.remove('open')
+    }
+}
 
 form.onsubmit = event => {
     event.preventDefault()
@@ -19,13 +28,15 @@ form.onsubmit = event => {
     let totalAmountBeer = beerPerPerson(timing) * adults
     let totalAmountDrinks = drinksPerPerson(timing) * adults + (drinksPerPerson(timing) / 2 * kids)
 
-    const message = `Precisará de ${totalAmountMeat / 1000} Kg de Carne, ${Math.ceil(totalAmountBeer / 355)} latas de cerveja e, ${Math.ceil(totalAmountDrinks / 2000)} garrafas de bebidas.`
+    const message = `Precisará de ${totalAmountMeat / 1000} kg de carne, ${Math.ceil(totalAmountBeer / 355)} latas de cerveja e, ${Math.ceil(totalAmountDrinks / 2000)} garrafas de bebidas.`
 
-    modalMessage.innerText = message
-    modalWrapper.classList.add('open')
+    Modal.message.innerText = message
+    Modal.open()
 }
 
-modalButtonClose.onclick = () => modalWrapper.classList.remove('open')
+Modal.buttonClose.onclick = () => {
+    Modal.close()
+}
 
 function meatPerPerson(timing) {
     if(timing >= 6) {
