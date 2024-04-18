@@ -90,10 +90,19 @@ form p {
 }
 
 input {
+    background: #DCE2E9;
+
     width: 100%;
 
     padding: 7px 24px;
     margin-bottom: 10px;
+
+    border: 1px solid rgba(73, 80, 87, 0.3);
+    border-radius: .3rem;
+}
+
+input:focus {
+    outline: 2px solid #02799D;
 }
 
 form button {
